@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pokemon.dart';
+part of 'contact_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
+ContactResponse _$ContactResponseFromJson(Map<String, dynamic> json) {
   $checkKeys(json, disallowNullValues: const ['name', 'id']);
-  return GithubPokemonModel(
+  return ContactResponse(
     json['name'] as String,
     json['id'] as String,
     json['email'] as String? ?? '',
@@ -18,7 +18,7 @@ GithubPokemonModel _$GithubPokemonModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GithubPokemonModelToJson(GithubPokemonModel instance) =>
+Map<String, dynamic> _$ContactResponseToJson(ContactResponse instance) =>
     <String, dynamic>{
       'name': instance.name,
       'id': instance.id,

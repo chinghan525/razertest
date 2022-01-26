@@ -4,7 +4,7 @@ import 'package:pokedex/ui/screens/home/home.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
 import 'package:pokedex/ui/screens/userprofile/userprofile.dart';
 
-import 'domain/entities/pokemon.dart';
+import 'domain/entities/contact.dart';
 
 enum Routes { splash, home, userprofile }
 
@@ -31,7 +31,7 @@ class AppNavigator {
 
       case _Paths.userprofile:
         return FadeRoute(
-            page: UserProfileScreen(settings.arguments as Pokemon));
+            page: UserProfileScreen(settings.arguments as Contact));
 
       case _Paths.home:
       default:

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/domain/entities/contact.dart';
 import 'package:pokedex/routes.dart';
 
-class PokeNews extends StatelessWidget {
-  const PokeNews({
-    required this.pokemon,
+class UserCardView extends StatelessWidget {
+  const UserCardView({
+    required this.contact,
   });
 
-  final Pokemon pokemon;
+  final Contact contact;
 
   Widget _buildContent(BuildContext context) {
-    var name = pokemon.name;
-    var id = pokemon.number;
+    var name = contact.name;
+    var id = contact.number;
     return Center(
       child: Card(
         shape: RoundedRectangleBorder(
@@ -20,7 +20,7 @@ class PokeNews extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
-            AppNavigator.push(Routes.userprofile, pokemon);
+            AppNavigator.push(Routes.userprofile, contact);
           },
           child: Row(
             children: <Widget>[

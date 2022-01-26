@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/domain/entities/pokemon.dart';
-import 'package:pokedex/states/pokemon/pokemon_bloc.dart';
-import 'package:pokedex/states/pokemon/pokemon_event.dart';
-import 'package:pokedex/states/pokemon/pokemon_state.dart';
+import 'package:pokedex/domain/entities/contact.dart';
+import 'package:pokedex/states/home/home_bloc.dart';
+import 'package:pokedex/states/home/home_event.dart';
+import 'package:pokedex/states/home/home_state.dart';
 import 'package:pokedex/ui/widgets/poke_news.dart';
 import 'package:provider/src/provider.dart';
 
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
 
     scheduleMicrotask(() {
-      context.read<PokemonBloc>().add(PokemonLoadStarted(loadAll: true));
+      context.read<HomeBloc>().add(HomeLoadStarted(loadAll: true));
     });
   }
 
@@ -33,18 +33,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     appBarHeight = 0;
     scheduleMicrotask(() {
-      context.read<PokemonBloc>().add(PokemonLoadStarted(loadAll: true));
+      context.read<HomeBloc>().add(HomeLoadStarted(loadAll: true));
     });
 
     return SafeArea(
       child: Scaffold(
-        body: BlocBuilder<PokemonBloc, PokemonState>(
+        body: BlocBuilder<HomeBloc, HomeState>(
           builder: (_, state) {
             if (state.error != null) {
               return _buildError();
             }
 
-            return _buildContent(state.pokemons);
+            return _buildContent(state.contacts);
           },
         ),
       ),
@@ -61,16 +61,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 
-  Widget _buildContent(List<Pokemon> pokemons) => ListView.builder(
-      itemCount: pokemons.length,
+  Widget _buildContent(List<Contact> contacts) => ListView.builder(
+      itemCount: contacts.length,
       itemBuilder: (BuildContext context, int position) {
-        return getRow(pokemons[position]);
+        return getRow(contacts[position]);
       });
 
-  Widget getRow(Pokemon pokemon) {
+  Widget getRow(Contact contact) {
     return GestureDetector(
-      child: PokeNews(
-        pokemon: pokemon,
+      child: UserCardView(
+        contact: contact,
       ),
       onTap: () {
         setState(() {});

@@ -1,8 +1,8 @@
-import 'package:pokedex/data/source/local/models/pokemon.dart';
-import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/data/source/local/models/contact.dart';
+import 'package:pokedex/domain/entities/contact.dart';
 
-extension PokemonHiveModelX on PokemonHiveModel {
-  Pokemon toEntity({List<PokemonHiveModel> evolutions = const []}) => Pokemon(
+extension PokemonHiveModelX on ContactHiveModel {
+  Contact toEntity({List<ContactHiveModel> evolutions = const []}) => Contact(
       number: number.trim(),
       name: name.trim(),
       email: email.trim(),

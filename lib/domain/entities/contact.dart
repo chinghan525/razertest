@@ -1,7 +1,7 @@
 import 'package:pokedex/data/source/github/models/phone_response.dart';
 
-class Pokemon {
-  const Pokemon({
+class Contact {
+  const Contact({
     required this.number,
     required this.name,
     required this.email,

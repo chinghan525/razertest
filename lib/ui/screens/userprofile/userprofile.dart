@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/domain/entities/contact.dart';
 
 class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen(this.pokemon);
+  const UserProfileScreen(this.contact);
 
-  final Pokemon pokemon;
+  final Contact contact;
 
   @override
   State<StatefulWidget> createState() => _UserProfileScreenState();
@@ -63,7 +63,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           // Username
           Center(
             child: Text(
-              widget.pokemon.name,
+              widget.contact.name,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 40),
             ),
@@ -83,7 +83,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
               Flexible(
                 child: Text(
-                  widget.pokemon.email,
+                  widget.contact.email,
                   style: TextStyle(
                     color: AppColors.lightBlue,
                     fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
               Flexible(
                 child: Text(
-                  widget.pokemon.address,
+                  widget.contact.address,
                   style: TextStyle(
                     fontSize: 15,
                   ),
@@ -130,7 +130,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
               Flexible(
                 child: Text(
-                  widget.pokemon.gender,
+                  widget.contact.gender,
                   style: TextStyle(
                     fontSize: 15,
                   ),
@@ -169,7 +169,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         Flexible(
                           child: Text(
-                            widget.pokemon.phone.mobile,
+                            widget.contact.phone.mobile,
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -192,7 +192,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         Flexible(
                           child: Text(
-                            widget.pokemon.phone.home,
+                            widget.contact.phone.home,
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -215,7 +215,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         ),
                         Flexible(
                           child: Text(
-                            widget.pokemon.phone.office,
+                            widget.contact.phone.office,
                             style: TextStyle(
                               fontSize: 15,
                             ),

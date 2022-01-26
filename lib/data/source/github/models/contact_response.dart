@@ -1,11 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pokedex/data/source/github/models/phone_response.dart';
 
-part 'pokemon.g.dart';
+part 'contact_response.g.dart';
 
 @JsonSerializable()
-class GithubPokemonModel {
-  GithubPokemonModel(
+class ContactResponse {
+  ContactResponse(
     this.name,
     this.id,
     this.email,
@@ -14,10 +14,10 @@ class GithubPokemonModel {
     this.phone,
   );
 
-  factory GithubPokemonModel.fromJson(Map<String, dynamic> json) =>
-      _$GithubPokemonModelFromJson(json);
+  factory ContactResponse.fromJson(Map<String, dynamic> json) =>
+      _$ContactResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GithubPokemonModelToJson(this);
+  Map<String, dynamic> toJson() => _$ContactResponseToJson(this);
 
   @JsonKey(disallowNullValue: true)
   final String name;

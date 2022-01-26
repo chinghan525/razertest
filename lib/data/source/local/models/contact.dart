@@ -1,10 +1,10 @@
 import 'package:hive/hive.dart';
 import 'package:pokedex/data/source/github/models/phone_response.dart';
 
-part 'pokemon.g.dart';
+part 'contact.g.dart';
 
 @HiveType(typeId: 1)
-class PokemonHiveModel extends HiveObject {
+class ContactHiveModel extends HiveObject {
   static const String boxKey = 'pokemon';
 
   @HiveField(0)
