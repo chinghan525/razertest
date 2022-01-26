@@ -1,14 +1,10 @@
 import 'package:razertest/data/source/github/models/contact_response.dart';
-import 'package:razertest/domain/entities/contact.dart';
 
 enum HomeStateStatus {
   initial,
   loading,
   loadSuccess,
   loadFailure,
-  loadingMore,
-  loadMoreSuccess,
-  loadMoreFailure,
 }
 
 class HomeState {
@@ -36,7 +32,8 @@ class HomeState {
     );
   }
 
-  HomeState asLoadSuccess(List<ContactResponse> contacts, {bool canLoadMore = true}) {
+  HomeState asLoadSuccess(List<ContactResponse> contacts,
+      {bool canLoadMore = true}) {
     return copyWith(
       status: HomeStateStatus.loadSuccess,
       contacts: contacts,
@@ -48,26 +45,6 @@ class HomeState {
   HomeState asLoadFailure(Exception e) {
     return copyWith(
       status: HomeStateStatus.loadFailure,
-      error: e,
-    );
-  }
-
-  HomeState asLoadingMore() {
-    return copyWith(status: HomeStateStatus.loadingMore);
-  }
-
-  // HomeState asLoadMoreSuccess(List<Contact> newContacts,
-  //     {bool canLoadMore = true}) {
-  //   return copyWith(
-  //     status: HomeStateStatus.loadMoreSuccess,
-  //     contacts: [...contacts, ...newContacts],
-  //     page: canLoadMore ? page + 1 : page,
-  //   );
-  // }
-
-  HomeState asLoadMoreFailure(Exception e) {
-    return copyWith(
-      status: HomeStateStatus.loadMoreFailure,
       error: e,
     );
   }

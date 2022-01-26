@@ -7,6 +7,7 @@ class _Image extends AssetImage {
 }
 
 class AppImages {
+  static const loading = _Image('loading.gif');
   static const pikloader = _Image('razer.png');
 
   static Future precacheAssets(BuildContext context) async {

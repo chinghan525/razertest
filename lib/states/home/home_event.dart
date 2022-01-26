@@ -9,9 +9,3 @@ class HomeLoadStarted extends HomeEvent {
 }
 
 class HomeLoadMoreStarted extends HomeEvent {}
-
-class HomeSelectChanged extends HomeEvent {
-  final String id;
-
-  const HomeSelectChanged({required this.id});
-}

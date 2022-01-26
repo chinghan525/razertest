@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:razertest/configs/images.dart';
 import 'package:razertest/data/source/github/models/contact_response.dart';
 import 'package:razertest/states/home/home_bloc.dart';
 import 'package:razertest/states/home/home_event.dart';
@@ -29,14 +30,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     appBarHeight = 0;
-    scheduleMicrotask(() {
-      context.read<HomeBloc>().add(HomeLoadStarted(loadAll: true));
-    });
 
     return SafeArea(
       child: Scaffold(
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (_, state) {
+            if (state.status == HomeStateStatus.loading) {
+              return _buildLoading();
+            }
             if (state.error != null) {
               return _buildError();
             }
@@ -47,6 +48,27 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget _buildLoading() => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+              image: AppImages.loading,
+              width: 50,
+              height: 50,
+              fit: BoxFit.contain,
+            ),
+            Text(
+              'Loading',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            )
+          ],
+        ),
+      );
 
   Widget _buildError() => Container(
         padding: EdgeInsets.only(bottom: 28),
