@@ -1,4 +1,4 @@
-import 'package:pokedex/data/source/github/models/phone_response.dart';
+import 'package:razertest/data/source/github/models/phone_response.dart';
 
 class Contact {
   const Contact({

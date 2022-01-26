@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/data/repositories/user_repository.dart';
+import 'package:razertest/data/repositories/user_repository.dart';
 
 import 'home_event.dart';
 import 'home_state.dart';

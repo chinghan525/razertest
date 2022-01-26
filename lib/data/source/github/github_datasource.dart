@@ -1,7 +1,7 @@
 import 'dart:collection';
 
-import 'package:pokedex/core/network.dart';
-import 'package:pokedex/data/source/github/models/contact_response.dart';
+import 'package:razertest/core/network.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
 
 class GithubDataSource {
   static const String url = 'https://api.androidhive.info/contacts/';

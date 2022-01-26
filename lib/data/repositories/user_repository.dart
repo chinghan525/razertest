@@ -1,5 +1,5 @@
-import 'package:pokedex/data/source/github/github_datasource.dart';
-import 'package:pokedex/data/source/github/models/contact_response.dart';
+import 'package:razertest/data/source/github/github_datasource.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
 
 abstract class UserRepository {
   Future<List<ContactResponse>> getAllContacts();

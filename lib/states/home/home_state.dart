@@ -1,5 +1,5 @@
-import 'package:pokedex/data/source/github/models/contact_response.dart';
-import 'package:pokedex/domain/entities/contact.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
+import 'package:razertest/domain/entities/contact.dart';
 
 enum HomeStateStatus {
   initial,

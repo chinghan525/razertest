@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/images.dart';
-import 'package:pokedex/routes.dart';
+import 'package:razertest/configs/images.dart';
+import 'package:razertest/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

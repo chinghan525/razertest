@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/data/source/github/models/contact_response.dart';
+import 'package:razertest/configs/colors.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen(this.contact);

@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/data/source/github/models/contact_response.dart';
-import 'package:pokedex/domain/entities/contact.dart';
-import 'package:pokedex/states/home/home_bloc.dart';
-import 'package:pokedex/states/home/home_event.dart';
-import 'package:pokedex/states/home/home_state.dart';
-import 'package:pokedex/ui/widgets/user_cardview.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
+import 'package:razertest/domain/entities/contact.dart';
+import 'package:razertest/states/home/home_bloc.dart';
+import 'package:razertest/states/home/home_event.dart';
+import 'package:razertest/states/home/home_state.dart';
+import 'package:razertest/ui/widgets/user_cardview.dart';
 import 'package:provider/src/provider.dart';
 
 part 'widgets/header_app_bar.dart';

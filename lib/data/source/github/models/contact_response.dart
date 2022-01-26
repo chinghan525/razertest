@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pokedex/data/source/github/models/phone_response.dart';
+import 'package:razertest/data/source/github/models/phone_response.dart';
 
 part 'contact_response.g.dart';
 

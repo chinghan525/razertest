@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/core/fade_page_route.dart';
-import 'package:pokedex/ui/screens/home/home.dart';
-import 'package:pokedex/ui/screens/splash/splash.dart';
-import 'package:pokedex/ui/screens/userprofile/userprofile.dart';
+import 'package:razertest/core/fade_page_route.dart';
+import 'package:razertest/ui/screens/home/home.dart';
+import 'package:razertest/ui/screens/splash/splash.dart';
+import 'package:razertest/ui/screens/userprofile/userprofile.dart';
 
 import 'data/source/github/models/contact_response.dart';
 import 'domain/entities/contact.dart';

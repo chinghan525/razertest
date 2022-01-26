@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/data/source/github/models/contact_response.dart';
-import 'package:pokedex/routes.dart';
+import 'package:razertest/data/source/github/models/contact_response.dart';
+import 'package:razertest/routes.dart';
 
 class UserCardView extends StatelessWidget {
   const UserCardView({

@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/app.dart';
-import 'package:pokedex/core/network.dart';
-import 'package:pokedex/data/repositories/user_repository.dart';
-import 'package:pokedex/data/source/github/github_datasource.dart';
-import 'package:pokedex/states/home/home_bloc.dart';
+import 'package:razertest/app.dart';
+import 'package:razertest/core/network.dart';
+import 'package:razertest/data/repositories/user_repository.dart';
+import 'package:razertest/data/source/github/github_datasource.dart';
+import 'package:razertest/states/home/home_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +47,7 @@ void main() async {
             create: (context) => HomeBloc(context.read<UserRepository>()),
           ),
         ],
-        child: PokedexApp(),
+        child: RazerTestApp(),
       ),
     ),
   );

@@ -1,19 +1,20 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/configs/constants.dart';
-import 'package:pokedex/configs/fonts.dart';
-import 'package:pokedex/routes.dart';
+import 'package:razertest/routes.dart';
 
-class PokedexApp extends StatelessWidget {
+import 'configs/colors.dart';
+import 'configs/constants.dart';
+import 'configs/fonts.dart';
+
+class RazerTestApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return MaterialApp(
       color: Colors.white,
-      title: 'Flutter Pokedex',
+      title: 'Flutter Razer Test',
       theme: ThemeData(
         fontFamily: AppFonts.circularStd,
         textTheme: theme.textTheme.apply(
@@ -30,7 +31,8 @@ class PokedexApp extends StatelessWidget {
 
         final data = MediaQuery.of(context);
         final smallestSize = min(data.size.width, data.size.height);
-        final textScaleFactor = min(smallestSize / AppConstants.designScreenSize.width, 1.0);
+        final textScaleFactor =
+            min(smallestSize / AppConstants.designScreenSize.width, 1.0);
 
         return MediaQuery(
           data: data.copyWith(
