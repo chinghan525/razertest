@@ -18,9 +18,9 @@ class PokemonGenderHiveModelAdapter
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return PokemonGenderHiveModel()
-      ..genderless = fields[0] as bool
-      ..male = fields[1] as double
-      ..female = fields[2] as double;
+      ..mobile = fields[0] as String
+      ..home = fields[1] as String
+      ..office = fields[2] as String;
   }
 
   @override
@@ -28,11 +28,11 @@ class PokemonGenderHiveModelAdapter
     writer
       ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.genderless)
+      ..write(obj.mobile)
       ..writeByte(1)
-      ..write(obj.male)
+      ..write(obj.home)
       ..writeByte(2)
-      ..write(obj.female);
+      ..write(obj.office);
   }
 
   @override

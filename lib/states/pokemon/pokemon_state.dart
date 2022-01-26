@@ -37,7 +37,8 @@ class PokemonState {
     );
   }
 
-  PokemonState asLoadSuccess(List<Pokemon> pokemons, {bool canLoadMore = true}) {
+  PokemonState asLoadSuccess(List<Pokemon> pokemons,
+      {bool canLoadMore = true}) {
     return copyWith(
       status: PokemonStateStatus.loadSuccess,
       pokemons: pokemons,
@@ -57,7 +58,8 @@ class PokemonState {
     return copyWith(status: PokemonStateStatus.loadingMore);
   }
 
-  PokemonState asLoadMoreSuccess(List<Pokemon> newPokemons, {bool canLoadMore = true}) {
+  PokemonState asLoadMoreSuccess(List<Pokemon> newPokemons,
+      {bool canLoadMore = true}) {
     return copyWith(
       status: PokemonStateStatus.loadMoreSuccess,
       pokemons: [...pokemons, ...newPokemons],

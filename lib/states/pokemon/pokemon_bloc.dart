@@ -14,13 +14,15 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     on<PokemonSelectChanged>(_onSelectChanged);
   }
 
-  void _onLoadStarted(PokemonLoadStarted event, Emitter<PokemonState> emit) async {
+  void _onLoadStarted(
+      PokemonLoadStarted event, Emitter<PokemonState> emit) async {
     try {
       emit(state.asLoading());
 
       final pokemons = event.loadAll
           ? await _pokemonRepository.getAllPokemons()
-          : await _pokemonRepository.getPokemons(page: 1, limit: pokemonsPerPage);
+          : await _pokemonRepository.getPokemons(
+              page: 1, limit: pokemonsPerPage);
 
       final canLoadMore = pokemons.length >= pokemonsPerPage;
 
@@ -30,7 +32,8 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     }
   }
 
-  void _onLoadMoreStarted(PokemonLoadMoreStarted event, Emitter<PokemonState> emit) async {
+  void _onLoadMoreStarted(
+      PokemonLoadMoreStarted event, Emitter<PokemonState> emit) async {
     try {
       emit(state.asLoadingMore());
 
@@ -47,8 +50,10 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     }
   }
 
-  void _onSelectChanged(PokemonSelectChanged event, Emitter<PokemonState> emit) async {
-    final pokemonIndex = state.pokemons.indexWhere((pokemon) => pokemon.number == event.pokemonId);
+  void _onSelectChanged(
+      PokemonSelectChanged event, Emitter<PokemonState> emit) async {
+    final pokemonIndex = state.pokemons
+        .indexWhere((pokemon) => pokemon.number == event.pokemonId);
 
     print(event.pokemonId);
     print(state.pokemons[0].number);

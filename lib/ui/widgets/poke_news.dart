@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/domain/entities/pokemon.dart';
+import 'package:pokedex/routes.dart';
 
 class PokeNews extends StatelessWidget {
   const PokeNews({
-    required this.title,
-    required this.time,
-    required this.thumbnail,
+    required this.pokemon,
   });
 
-  final ImageProvider thumbnail;
-  final String time;
-  final String title;
+  final Pokemon pokemon;
 
   Widget _buildContent(BuildContext context) {
+    var name = pokemon.name;
+    var id = pokemon.number;
     return Center(
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
-            debugPrint('Card tapped.');
+            AppNavigator.push(Routes.userprofile, pokemon);
           },
           child: Row(
             children: <Widget>[
@@ -31,7 +34,7 @@ class PokeNews extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                           image: NetworkImage(
-                              'https://googleflutter.com/sample_image.jpg'),
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaqRdxGoQ1qP5Ia6RUExqTixoPRDglzT_IdbWCPnXA2nC6cOas6ihdIXjAdKhqSls9B8&usqp=CAU'),
                           fit: BoxFit.fill),
                     ),
                   ),
@@ -41,9 +44,9 @@ class PokeNews extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Name: ', textAlign: TextAlign.center),
+                    Text('Name: $name', textAlign: TextAlign.center),
                     SizedBox(height: 8),
-                    Text('Id: ', textAlign: TextAlign.center),
+                    Text('Id: $id', textAlign: TextAlign.center),
                   ],
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:pokedex/data/source/github/models/phone_response.dart';
 
 part 'pokemon.g.dart';
 
@@ -7,31 +8,10 @@ class GithubPokemonModel {
   GithubPokemonModel(
     this.name,
     this.id,
-    this.imageUrl,
-    this.xDescription,
-    this.yDescription,
-    this.height,
-    this.category,
-    this.weight,
-    this.types,
-    this.weaknesses,
-    this.evolutions,
-    this.abilities,
-    this.hp,
-    this.attack,
-    this.defense,
-    this.specialAttack,
-    this.specialDefense,
-    this.speed,
-    this.total,
-    this.genderMalePercentage,
-    this.genderFemalePercentage,
-    this.genderless,
-    this.cycles,
-    this.eggGroups,
-    this.evolvedFrom,
-    this.reason,
-    this.baseExp,
+    this.email,
+    this.address,
+    this.gender,
+    this.phone,
   );
 
   factory GithubPokemonModel.fromJson(Map<String, dynamic> json) =>
@@ -45,78 +25,14 @@ class GithubPokemonModel {
   @JsonKey(disallowNullValue: true)
   final String id;
 
-  @JsonKey(name: 'imageurl', disallowNullValue: true)
-  final String imageUrl;
-
-  @JsonKey(name: 'xdescription', defaultValue: '')
-  final String xDescription;
-
-  @JsonKey(name: 'ydescription', defaultValue: '')
-  final String yDescription;
+  @JsonKey(defaultValue: '')
+  final String email;
 
   @JsonKey(defaultValue: '')
-  final String height;
+  final String address;
 
   @JsonKey(defaultValue: '')
-  final String category;
+  final String gender;
 
-  @JsonKey(defaultValue: '')
-  final String weight;
-
-  @JsonKey(name: 'typeofpokemon', disallowNullValue: true)
-  final List<String> types;
-
-  @JsonKey(defaultValue: [])
-  final List<String> weaknesses;
-
-  @JsonKey(defaultValue: [])
-  final List<String> evolutions;
-
-  @JsonKey(defaultValue: [])
-  final List<String> abilities;
-
-  @JsonKey(disallowNullValue: true)
-  final num hp;
-
-  @JsonKey(disallowNullValue: true)
-  final num attack;
-
-  @JsonKey(disallowNullValue: true)
-  final num defense;
-
-  @JsonKey(name: 'special_attack', disallowNullValue: true)
-  final num specialAttack;
-
-  @JsonKey(name: 'special_defense', disallowNullValue: true)
-  final num specialDefense;
-
-  @JsonKey(disallowNullValue: true)
-  final num speed;
-
-  @JsonKey(disallowNullValue: true)
-  final num total;
-
-  @JsonKey(name: 'male_percentage', disallowNullValue: true)
-  final String genderMalePercentage;
-
-  @JsonKey(name: 'female_percentage', disallowNullValue: true)
-  final String genderFemalePercentage;
-
-  @JsonKey(disallowNullValue: true)
-  final num genderless;
-
-  @JsonKey(defaultValue: '')
-  final String cycles;
-
-  @JsonKey(name: 'egg_groups', disallowNullValue: true)
-  final String eggGroups;
-
-  @JsonKey(name: 'evolvedfrom')
-  final String evolvedFrom;
-
-  @JsonKey(defaultValue: '')
-  final String reason;
-
-  @JsonKey(name: 'base_exp', defaultValue: '0')
-  final String baseExp;
+  final Phone phone;
 }

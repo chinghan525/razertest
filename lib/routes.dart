@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/fade_page_route.dart';
 import 'package:pokedex/ui/screens/home/home.dart';
-import 'package:pokedex/ui/screens/pokedex/pokedex.dart';
-import 'package:pokedex/ui/screens/pokemon_info/pokemon_info.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
-import 'package:pokedex/ui/screens/types/type_screen.dart';
+import 'package:pokedex/ui/screens/userprofile/userprofile.dart';
 
 import 'domain/entities/pokemon.dart';
 
-enum Routes { splash, home, pokedex, pokemonInfo, typeEffects }
+enum Routes { splash, home, userprofile }
 
 class _Paths {
   static const String splash = '/';
   static const String home = '/home';
-  static const String pokedex = '/home/pokedex';
-  static const String pokemonInfo = '/home/pokemon';
-  static const String typeEffectsScreen = '/home/type';
+  static const String userprofile = '/userprofile';
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
     Routes.home: _Paths.home,
-    Routes.pokedex: _Paths.pokedex,
-    Routes.pokemonInfo: _Paths.pokemonInfo,
-    Routes.typeEffects: _Paths.typeEffectsScreen,
+    Routes.userprofile: _Paths.userprofile,
   };
 
   static String of(Routes route) => _pathMap[route] ?? splash;
@@ -35,14 +29,9 @@ class AppNavigator {
       case _Paths.splash:
         return FadeRoute(page: SplashScreen());
 
-      case _Paths.pokedex:
-        return FadeRoute(page: PokedexScreen());
-
-      case _Paths.pokemonInfo:
-        return FadeRoute(page: PokemonInfo(settings.arguments as Pokemon));
-
-      case _Paths.typeEffectsScreen:
-        return FadeRoute(page: TypeEffectScreen());
+      case _Paths.userprofile:
+        return FadeRoute(
+            page: UserProfileScreen(settings.arguments as Pokemon));
 
       case _Paths.home:
       default:
