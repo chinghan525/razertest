@@ -1,3 +1,4 @@
+import 'package:pokedex/data/source/github/models/contact_response.dart';
 import 'package:pokedex/domain/entities/contact.dart';
 
 enum HomeStateStatus {
@@ -12,7 +13,7 @@ enum HomeStateStatus {
 
 class HomeState {
   final HomeStateStatus status;
-  final List<Contact> contacts;
+  final List<ContactResponse> contacts;
   final int selectedIndex;
   final int page;
   final Exception? error;
@@ -35,7 +36,7 @@ class HomeState {
     );
   }
 
-  HomeState asLoadSuccess(List<Contact> contacts, {bool canLoadMore = true}) {
+  HomeState asLoadSuccess(List<ContactResponse> contacts, {bool canLoadMore = true}) {
     return copyWith(
       status: HomeStateStatus.loadSuccess,
       contacts: contacts,
@@ -55,14 +56,14 @@ class HomeState {
     return copyWith(status: HomeStateStatus.loadingMore);
   }
 
-  HomeState asLoadMoreSuccess(List<Contact> newContacts,
-      {bool canLoadMore = true}) {
-    return copyWith(
-      status: HomeStateStatus.loadMoreSuccess,
-      contacts: [...contacts, ...newContacts],
-      page: canLoadMore ? page + 1 : page,
-    );
-  }
+  // HomeState asLoadMoreSuccess(List<Contact> newContacts,
+  //     {bool canLoadMore = true}) {
+  //   return copyWith(
+  //     status: HomeStateStatus.loadMoreSuccess,
+  //     contacts: [...contacts, ...newContacts],
+  //     page: canLoadMore ? page + 1 : page,
+  //   );
+  // }
 
   HomeState asLoadMoreFailure(Exception e) {
     return copyWith(
@@ -73,7 +74,7 @@ class HomeState {
 
   HomeState copyWith({
     HomeStateStatus? status,
-    List<Contact>? contacts,
+    List<ContactResponse>? contacts,
     int? selectedIndex,
     int? page,
     bool? canLoadMore,

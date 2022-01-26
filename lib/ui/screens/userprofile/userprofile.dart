@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/configs/colors.dart';
-import 'package:pokedex/domain/entities/contact.dart';
+import 'package:pokedex/data/source/github/models/contact_response.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen(this.contact);
 
-  final Contact contact;
+  final ContactResponse contact;
 
   @override
   State<StatefulWidget> createState() => _UserProfileScreenState();

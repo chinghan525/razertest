@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/data/source/github/models/contact_response.dart';
 import 'package:pokedex/domain/entities/contact.dart';
 import 'package:pokedex/states/home/home_bloc.dart';
 import 'package:pokedex/states/home/home_event.dart';
 import 'package:pokedex/states/home/home_state.dart';
-import 'package:pokedex/ui/widgets/poke_news.dart';
+import 'package:pokedex/ui/widgets/user_cardview.dart';
 import 'package:provider/src/provider.dart';
 
 part 'widgets/header_app_bar.dart';
@@ -61,13 +62,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 
-  Widget _buildContent(List<Contact> contacts) => ListView.builder(
+  Widget _buildContent(List<ContactResponse> contacts) => ListView.builder(
       itemCount: contacts.length,
       itemBuilder: (BuildContext context, int position) {
         return getRow(contacts[position]);
       });
 
-  Widget getRow(Contact contact) {
+  Widget getRow(ContactResponse contact) {
     return GestureDetector(
       child: UserCardView(
         contact: contact,

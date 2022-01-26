@@ -4,6 +4,7 @@ import 'package:pokedex/ui/screens/home/home.dart';
 import 'package:pokedex/ui/screens/splash/splash.dart';
 import 'package:pokedex/ui/screens/userprofile/userprofile.dart';
 
+import 'data/source/github/models/contact_response.dart';
 import 'domain/entities/contact.dart';
 
 enum Routes { splash, home, userprofile }
@@ -31,7 +32,7 @@ class AppNavigator {
 
       case _Paths.userprofile:
         return FadeRoute(
-            page: UserProfileScreen(settings.arguments as Contact));
+            page: UserProfileScreen(settings.arguments as ContactResponse));
 
       case _Paths.home:
       default:

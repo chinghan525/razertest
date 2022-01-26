@@ -11,7 +11,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc(this._userRepository) : super(HomeState.initial()) {
     on<HomeLoadStarted>(_onLoadStarted);
-    on<HomeLoadMoreStarted>(_onLoadMoreStarted);
+    // on<HomeLoadMoreStarted>(_onLoadMoreStarted);
     on<HomeSelectChanged>(_onSelectChanged);
   }
 
@@ -20,10 +20,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       emit(state.asLoading());
 
-      final contacts = event.loadAll
-          ? await _userRepository.getAllContacts()
-          : await _userRepository.getContact(
-              page: 1, limit: contactsPerPage);
+      final contacts = await _userRepository.getAllContacts();
 
       final canLoadMore = contacts.length >= contactsPerPage;
 
@@ -33,31 +30,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  void _onLoadMoreStarted(
-      HomeLoadMoreStarted event, Emitter<HomeState> emit) async {
-    try {
-      emit(state.asLoadingMore());
-
-      final contacts = await _userRepository.getContact(
-        page: state.page + 1,
-        limit: contactsPerPage,
-      );
-
-      final canLoadMore = contacts.length >= contactsPerPage;
-
-      emit(state.asLoadMoreSuccess(contacts, canLoadMore: canLoadMore));
-    } on Exception catch (e) {
-      emit(state.asLoadMoreFailure(e));
-    }
-  }
+  // void _onLoadMoreStarted(
+  //     HomeLoadMoreStarted event, Emitter<HomeState> emit) async {
+  //   try {
+  //     emit(state.asLoadingMore());
+  //
+  //     final contacts = await _userRepository.getContact(
+  //       page: state.page + 1,
+  //       limit: contactsPerPage,
+  //     );
+  //
+  //     final canLoadMore = contacts.length >= contactsPerPage;
+  //
+  //     emit(state.asLoadMoreSuccess(contacts, canLoadMore: canLoadMore));
+  //   } on Exception catch (e) {
+  //     emit(state.asLoadMoreFailure(e));
+  //   }
+  // }
 
   void _onSelectChanged(
       HomeSelectChanged event, Emitter<HomeState> emit) async {
     final contactIndex = state.contacts
-        .indexWhere((contact) => contact.number == event.id);
+        .indexWhere((contact) => contact.id == event.id);
 
     print(event.id);
-    print(state.contacts[0].number);
+    print(state.contacts[0].id);
     print(contactIndex);
 
     if (contactIndex < 0 || contactIndex >= state.contacts.length) return;

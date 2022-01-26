@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/domain/entities/contact.dart';
+import 'package:pokedex/data/source/github/models/contact_response.dart';
 import 'package:pokedex/routes.dart';
 
 class UserCardView extends StatelessWidget {
@@ -7,11 +7,11 @@ class UserCardView extends StatelessWidget {
     required this.contact,
   });
 
-  final Contact contact;
+  final ContactResponse contact;
 
   Widget _buildContent(BuildContext context) {
     var name = contact.name;
-    var id = contact.number;
+    var id = contact.id;
     return Center(
       child: Card(
         shape: RoundedRectangleBorder(
